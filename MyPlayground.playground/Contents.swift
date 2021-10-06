@@ -209,8 +209,72 @@ print(firstNumber)
 // "abcde" -> 0 # no characters repeats more than once
 // "aabbcde" -> 2 # 'a' and 'b'
 // "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
-// "indivisibility" -> 1 # 'i' occurs six times
+// "Indivisibility" -> 1 # 'i' occurs six times
 // "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
+// convert the string to uppercase
+// for to go through the array (possible 2 for's)
+// compare each char with the rest
+// separate the string in individual chars
+// two for's to compare each character
+// recursivity in functions
+
+func countDuplicates(s: String) -> Int {
+    let string = s.lowercased() // abba
+    var dicDuplicates = [Character: Int]() // [a:2, b:2]
+    var dupCounter = 0 // 2
+    for char in string {
+        if dicDuplicates[char] != nil { // dicDuplicates[b] == nil
+            dicDuplicates[char]! += 1
+            if dicDuplicates[char]! == 2 {
+                dupCounter += 1
+            }
+        } else {
+            dicDuplicates[char] = 1
+        }
+    }
+    return dupCounter // 2
+}
+countDuplicates(s: "aA11")
+
+
+// LOOPS
+
+// for
+let rangeFor = 4..<8
+for number in rangeFor {
+    print ("\(number) is the index")
+}
+
+for _ in  1...5 {
+    print ("play")
+}
+
+// while
+var numberWhile = 1
+while numberWhile <= 5 { // 6 <= 5 -> false
+    print(numberWhile)
+    numberWhile += 1
+}
+
+// repeat
+var numberRepeat = 25
+repeat {
+    print(numberRepeat)
+    numberRepeat += 1
+} while (numberRepeat <= 23)
+
+// breaks
+var countDown = 5
+while countDown >= 0 {
+    print("\(countDown) countdown")
+    if countDown == 4 {
+        print("counting down is boring")
+        break
+    }
+    countDown -= 1
+}
+
+// 
