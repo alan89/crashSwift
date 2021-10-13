@@ -277,4 +277,65 @@ while countDown >= 0 {
     countDown -= 1
 }
 
-// 
+// Exiting multiples loops
+outerLoop: for i in 1...10 {
+    for j in 1...10 {
+        let product = i * j
+        print("\(i) * \(j) is \(product)")
+        if product == 50 {
+            print("It's a bullseye!")
+            break outerLoop
+        }
+    }
+}
+
+// Skipping items
+for i in 1...10 {
+    if i % 2 == 1 {
+        continue
+    }
+    print(i)
+}
+
+// Closures
+let driving = {
+    print("I'm driving in my car")
+}
+driving()
+
+// Accepting parameters in closures
+let drivingParameters = { (place: String) in
+    print("I'm going to \(place) in my car")
+}
+drivingParameters("London")
+
+// Returning values in closures
+let drivingParamsReturn = { (place: String) -> String in
+    return "I'm going to \(place) in my car"
+}
+let message = drivingParamsReturn("London")
+print(message)
+
+// Closures as parameters
+func travel(action: () -> Void) {
+    print("I'm getting ready to go")
+    action()
+    print("I arrived!")
+}
+travel(action: driving)
+
+// Trailing closure syntax
+travel {
+    print("driving my car")
+}
+
+// Using closures as parameters
+// when they accept parameters
+func travelParam(action: (String) -> Void) {
+    print("I'm getting ready to go")
+    action("London")
+    print("I arrived!")
+}
+travelParam { (place:String) in
+    print("I'm going to \(place) in my car")
+}
