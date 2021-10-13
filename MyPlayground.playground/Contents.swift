@@ -339,3 +339,11 @@ func travelParam(action: (String) -> Void) {
 travelParam { (place:String) in
     print("I'm going to \(place) in my car")
 }
+
+
+// EXERCISE
+// Write a function that takes a message as an array of characters
+// and reverses the order of the words in place. E.g.
+// Input: [‘o’, ‘n’, ‘e’, ‘ ‘, ’t’, ‘w’, ‘o’, ‘ ‘, ‘t’, ’h’, ‘r’, ‘e’, ‘e’]
+// Output: [‘t’, ’h’, ’r’, ’e’, ‘e’, ‘ ‘, ‘t’, ‘w’, ‘o’, ‘ ‘, ‘o’,’n’,’e’].
+
