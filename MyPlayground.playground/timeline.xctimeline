@@ -3,7 +3,12 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/ealan/Documents/Xcode/crashCourseSwift/MyPlayground.playground#CharacterRangeLen=84&amp;CharacterRangeLoc=4548&amp;EndingColumnNumber=49&amp;EndingLineNumber=217&amp;StartingColumnNumber=0&amp;StartingLineNumber=216&amp;Timestamp=655849763.175357"
+         documentLocation = "file:///Users/ealan/Documents/Xcode/crashCourseSwift/MyPlayground.playground#CharacterRangeLen=84&amp;CharacterRangeLoc=4548&amp;EndingColumnNumber=49&amp;EndingLineNumber=217&amp;StartingColumnNumber=0&amp;StartingLineNumber=216&amp;Timestamp=656022668.650738"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/ealan/Documents/Xcode/crashCourseSwift/MyPlayground.playground#CharacterRangeLen=679&amp;CharacterRangeLoc=7827&amp;EndingColumnNumber=0&amp;EndingLineNumber=382&amp;StartingColumnNumber=0&amp;StartingLineNumber=356&amp;Timestamp=656022668.650929"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>

@@ -345,5 +345,38 @@ travelParam { (place:String) in
 // Write a function that takes a message as an array of characters
 // and reverses the order of the words in place. E.g.
 // Input: [‘o’, ‘n’, ‘e’, ‘ ‘, ’t’, ‘w’, ‘o’, ‘ ‘, ‘t’, ’h’, ‘r’, ‘e’, ‘e’]
+// Input : "one two three"
 // Output: [‘t’, ’h’, ’r’, ’e’, ‘e’, ‘ ‘, ‘t’, ‘w’, ‘o’, ‘ ‘, ‘o’,’n’,’e’].
+// Input : "three two one"
 
+// using 2 lists: list2 = input, list1 = array of words
+// going through the input array until we find a space char
+// store the previous array of chars in list1 = ["one", "two", "three"]
+// going through list1, starting in the last element, and countdown until the first one
+// concat all the words and return the final array (String)
+
+func reverseWords(string: String) -> String {
+    var resultString = ""
+    var helperArray : [String] = [""]
+    var counterHelper = 0
+    for char in string {
+        if char == " " {
+            counterHelper += 1
+            helperArray.append("")
+        }
+        helperArray[counterHelper].append(char)
+    }
+    helperArray = helperArray.reversed()
+    for internalArray in helperArray {
+        resultString.append(contentsOf: internalArray)
+        if counterHelper > 0 {
+            resultString.append(" ")
+        }
+        counterHelper -= 1
+    }
+    return resultString
+}
+var charArray = "one two three four five six  seven"
+reverseWords(string: charArray)
+
+// 
