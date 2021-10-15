@@ -379,4 +379,41 @@ func reverseWords(string: String) -> String {
 var charArray = "one two three four five six  seven"
 reverseWords(string: charArray)
 
-// 
+// ================== tricardo version ===================================
+//  Function that reverse an Array of characthers by the space delimiter
+func reverseWordsInArray(arr: Array<String>) -> Array<String> {
+    return auxReverseWordsInArray(resultArray: [], accumArray: [], inputArray: arr)
+}
+
+//  Auxiliar function for `reverseCharsByWordInArray`
+// Example: 
+// f = auxReverseWordsInArray
+// f([],[],["f","o"," ","b"," ","a"]) =
+// f([],["f"],["o"," ","b"," ","a"]) =
+// f([],["f","o"],[" ","b"," ","a"]) =
+// f([" ","f","o"],[],["b"," ","a"]))=
+// f([" ","f","o"], ["b"], [" ","a"]) =
+// f([" ","b"," ","f","o"],[],["a"]) = 
+// f([" ","b"," ","f","o"],["a"],[]) =
+// ["a"," ","b"," ","f","o"]
+func auxReverseWordsInArray(resultArray: Array<String>, accumArray: Array<String>, inputArray: Array<String>) -> Array<String> {
+    // BASE CASE: When there is not chars in the result, concat the last word accumulate with the result
+    if inputArray.isEmpty { return accumArray + resultArray } 
+    // RECURSIVES STEPS:
+    // 1.- Obtain the head and the tail of the result array.
+    let head = inputArray[0]
+    let tail = Array(inputArray.dropFirst())
+    // 2.- There's two cases: The char is " " or not.
+    if head == " " {
+        // 2.a .- Apply again the function but merge the accumArray with the
+        //resultArray. This is the case in which you have a complete WORD in
+        //the accumArray
+        return auxReverseWordsInArray(resultArray: [" "] + accumArray + resultArray, accumArray: [], inputArray: tail)
+    }else {
+        // 2.b .- You need to apply the function adding the head to the
+        // accumArray. The char is not the delimiter and you need to continue
+        // accum the WORD until you find the space.
+        return auxReverseWordsInArray(resultArray: resultArray, accumArray: accumArray + [head], inputArray: tail)
+    }
+}
+//====== End tricardo version ===========================================================================================
