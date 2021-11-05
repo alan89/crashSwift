@@ -1,4 +1,5 @@
 import UIKit
+import Foundation // tricardo: I use this library to have access to the string method `replacingOccurrences(of:string, with:string)`
 
 var firstVariable = "Hello, playground"
 
@@ -239,6 +240,55 @@ func countDuplicates(s: String) -> Int {
 }
 countDuplicates(s: "aA11")
 
+
+//Recursive form of countDuplicates
+func countDuplicatesRecursive(str: String) -> Int {
+    // I use this function only for pass the real function a lowercase string.
+    // the problem is no case sensitive   
+    return auxCountDuplicatesRecursive(str: str.lowercased())
+}
+
+/**
+  
+  `Given an string it returns how many characters are repeated at least two times`
+
+  This is a recursive function, because in the definition of the function it calls itself
+  in order to complete the result.
+  All recursive functions has two important thing.
+  	1. A base: 
+  		If a recursive function has not a base, the function will run forever and functions
+  		that does not conclude are useless.
+
+  		Case bases are very simple to solve, in this example, the string "" represent the "empty string" i.e a string
+  		without characters. If a string has no characters then doesn't have any character duplicate, this implies that:
+
+		```
+		auxCountDuplicatesRecursive(str: "") == 0
+		```
+
+  	2. The recursive step:
+  		This is when the function calls to itself. You must remember that you need
+  	 	apply the recursive step with parameters that are "minor" or "less dificult" (This is a talk for other moment,
+  	 	if someone are interested i'm refer that in order to apply recursive functions you must have at least a "partial order").
+
+  	 	In this case when apply the function to a string I'm always apply in the recursive step an string without certain characters.
+  	 	(The characters that are equal to the head, ie, to the first character on the string).
+
+  	 	```
+  	 	auxCountDuplicatesRecursive(str: "ABBA") == 1 + auxCountDuplicatesRecursive("BB") == 1 + 1 + auxCountDuplicatesRecursive(str: "") == 1+1+0 == 2
+  	 	```
+ */
+
+func auxCountDuplicatesRecursive(str: String) -> Int {
+    if (str ?? "").isEmpty { return 0; }
+    let head = String(str.first!)
+    let tail = String(str.dropFirst())
+    let value = tail.contains(head) ? 1 : 0
+    return value + auxCountDuplicatesRecursive(str: tail.replacingOccurrences(of: head, with: ""))
+}
+
+print(countDuplicatesRecursive(str: "Oooorale"))
+print(countDuplicatesRecursive(str: "AaBb"))
 
 // LOOPS
 
